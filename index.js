@@ -14,6 +14,7 @@
  */
 
 
+
 const { Client, GatewayIntentBits, ActivityType, TextChannel } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
@@ -34,8 +35,12 @@ app.listen(port, () => {
   console.log(`🔗 Powered By RTX`);
 });
 
-const channelId = ''; // You need to set this to your desired channel ID
+
+const statusMessages = ["follow @luv118jz on instagram!"];
+
+
 let currentIndex = 0;
+const channelId = '';
 
 async function login() {
   try {
@@ -46,34 +51,6 @@ async function login() {
     process.exit(1);
   }
 }
-
-function updateStatusAndSendMessages() {
-  client.user.setPresence({
-    status: 'dnd', // You can change this to 'idle', 'online', or 'invisible'
-  });
-
-  const textChannel = client.channels.cache.get(channelId);
-
-  if (textChannel instanceof TextChannel) {
-    // You can send any message here if needed
-  }
-
-  currentIndex = (currentIndex + 1) % statusMessages.length;
-}
-
-client.once('ready', () => {
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ✅ Bot is ready as ${client.user.tag}`);
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ✨HAPPY NEW YEAR MY DEAR FAMILY`);
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ❤️WELCOME TO 2024`);
-  updateStatusAndSendMessages();
-
-  setInterval(() => {
-    updateStatusAndSendMessages();
-  }, 10000);
-});
-
-login();
-
 
 /**
  ██████╗░████████╗██╗░░██╗           
