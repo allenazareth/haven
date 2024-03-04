@@ -36,7 +36,7 @@ app.listen(port, () => {
 });
 
 
-const statusMessages = ["follow @luv118jz on instagram!"];
+const statusMessages = ["follow @ilagansimon on instagram!"];
 
 
 let currentIndex = 0;
